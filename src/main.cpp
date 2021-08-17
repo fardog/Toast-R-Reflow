@@ -26,6 +26,7 @@ board, which is model II.
 
 */
 
+#include <Arduino.h>
 #include <avr/pgmspace.h>
 #include <avr/wdt.h>
 #include <LiquidCrystal.h>
