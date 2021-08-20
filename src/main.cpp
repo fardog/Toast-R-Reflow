@@ -101,7 +101,7 @@ board, which is model II.
 char p_buffer[17];
 #define P(str) (strncpy_P(p_buffer, PSTR(str), sizeof(p_buffer)), p_buffer)
 
-#define VERSION "(II) 1.2"
+#define VERSION "(II) 1.3-fardog"
 
 struct curve_point {
   // Display this string on the display during this phase. Maximum 8 characters long.
@@ -182,9 +182,16 @@ const struct curve_point PT_C_2 PROGMEM = { name_c_txt, 36000000, 125.0 };
 
 PGM_VOID_P const profile_c[] PROGMEM = { &PT_C_1, &PT_C_2, &PT_END };
 
-#define PROFILE_COUNT 3
-PROGMEM PGM_VOID_P const profiles[] = { profile_a, profile_b, profile_c };
-PROGMEM PGM_P const profile_names[] = { name_a_txt, name_b_txt, name_c_txt };
+const char name_d_txt[] PROGMEM = "SiO2";
+
+const struct curve_point PT_D_1 PROGMEM = { PH_txt, 2 * 60 * 1000L, 110.0 };
+const struct curve_point PT_D_2 PROGMEM = { name_d_txt, 3 * 60 * 60 * 1000L, 110.0 };
+
+PGM_VOID_P const profile_d[] PROGMEM = { &PT_D_1, &PT_D_2, &PT_END };
+
+#define PROFILE_COUNT 4
+PROGMEM PGM_VOID_P const profiles[] = { profile_a, profile_b, profile_c, profile_d };
+PROGMEM PGM_P const profile_names[] = { name_a_txt, name_b_txt, name_c_txt, name_d_txt };
 
 // missing from the Arduino IDE
 #ifndef pgm_read_ptr
